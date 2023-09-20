@@ -146,7 +146,7 @@ class BottomButtonsView(
         binding.positiveButton.text = savedState.positiveButtonText
         binding.negativeButton.text = savedState.negativeButtonText
     }
-
+    //for do not lost data whem rotating phone
     class SavedState : BaseSavedState {
 
         var positiveButtonText: String? = null
