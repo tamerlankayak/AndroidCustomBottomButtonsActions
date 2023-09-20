@@ -16,7 +16,7 @@ enum class BottomButtonAction {
 
 typealias  OnBottomButtonsActionListener = (BottomButtonAction) -> Unit
 
-
+//
 class BottomButtonsView(
     context: Context,
     attrs: AttributeSet?,
