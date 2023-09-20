@@ -9,13 +9,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.custombutton.databinding.ActivityMainBinding
+
 @RequiresApi(Build.VERSION_CODES.P)
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val token = Any()
-    private val handler = Handler(Looper.getMainLooper())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,15 +22,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomButtons.setListener {
             if (it == BottomButtonAction.POSITIVE) {
-                binding.bottomButtons.isProgressMode = true
-                handler.postDelayed({
-                    binding.bottomButtons.isProgressMode = false
-                    binding.bottomButtons.setPositiveButtonText("Updated OK")
-                    Toast.makeText(this, "Positive Button Pressed", Toast.LENGTH_SHORT).show()
-                }, token, 2000)
+                binding.bottomButtons.setPositiveButtonText("Updated OK")
             } else if (it == BottomButtonAction.NEGATIVE) {
                 binding.bottomButtons.setNegativeButtonText("Updated Cancel")
-                Toast.makeText(this, "Negative Button Pressed", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -39,8 +32,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-        handler.removeCallbacksAndMessages(token)
-    }
 }
