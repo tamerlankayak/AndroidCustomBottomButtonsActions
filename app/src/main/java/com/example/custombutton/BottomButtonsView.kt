@@ -11,7 +11,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.custombutton.databinding.PartButtonsBinding
 
-
+//actions of button
 enum class BottomButtonAction {
     POSITIVE, NEGATIVE
 }
